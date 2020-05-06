@@ -1,7 +1,50 @@
+# ---- HW #8, Time and Space Complexity ---
+
+"""
+--- 74. Search a 2D Matrix --- 
+https://leetcode.com/problems/search-a-2d-matrix/
+
+Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the 
+following properties:
+    - Integers in each row are sorted from left to right.
+    - The first integer of each row is greater than the last integer of the previous row.
+"""
+
+# time complexity: O(m + n)
+# space complexity: O(1)
+def searchMatrix(matrix):
+    for row in matrix:
+        if len(row) == 0:
+            return False
+        if target <= row[len(row) - 1]:
+            if target in row:
+                return True
+            else:
+                return False
+
+"""
+--- 169. Majority Element ---
+https://leetcode.com/problems/majority-element/
+
+Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+You may assume that the array is non-empty and the majority element always exist in the array.
+"""
+# time complexity: O(n)
+# space complexity: O(n)
+def majorityElement(nums):
+    thres = len(nums) // 2
+    hist = {}
+    for n in nums:
+        if n not in hist:
+            hist[n] = 0
+        hist[n] += 1
+        if hist[n] > thres:
+            return n
+
 # ---- HW #7, Variable Tables ---
 
 """
---- 1346. Check in N and Its Double Exist
+--- 1346. Check in N and Its Double Exist ---
 https://leetcode.com/problems/check-if-n-and-its-double-exist/
 
 Given an array arr of integers, check if there exists two integers N and M such that N is the double 
